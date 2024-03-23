@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express'
 import morgan from 'morgan';
 import { db } from './models'
+import userRoutes from './routes/userRoutes'
 
 // middleware
 
@@ -16,6 +17,9 @@ const corsOptions = {
     origin: ['http://localhost:3001']
 };
 app.use(cors(corsOptions));
+
+// routes
+app.use('/users', userRoutes);
 
 // Syncing our database
 db.sync().then(() => {
