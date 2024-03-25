@@ -5,6 +5,7 @@ export class Workout extends Model<InferAttributes<Workout>, InferCreationAttrib
     declare workoutId: number;
     declare username: string;
     declare title: string;
+    declare description: string;
     declare createdAt?: Date;
     declare updatedAt?: Date;
 }
@@ -22,6 +23,10 @@ export function WorkoutFactory(sequelize: Sequelize) {
             allowNull: false,
         },
         title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        description: {
             type: DataTypes.STRING,
             allowNull: false,
         },
